@@ -2,10 +2,27 @@
 <!--hi-->
   <head>
     <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src='scripts.js'></script>
   </head>
   <body>
+  	<div ng-app="myApp" ng-controller="myCtrl"> 
+
     <script>
       var myDataRef = new Firebase('https://w6w9mv1ytz1.firebaseio-demo.com/');
     </script>
+
+    <table>
+  		<tr ng-repeat="college in colleges">
+    		<td>{{ college.Name }}</td>
+    		<td>{{ college.Location }}</td>
+    		<td>{{ college.Size }}</td>
+  		</tr>
+    </table>
+
+    {{firstName}} {{lastName}}
+
+</div>
+
   </body>
 </html>
