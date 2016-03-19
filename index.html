@@ -1,35 +1,31 @@
 <html>
-<<<<<<< HEAD
-  <head>
-    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
-  </head>
-  <body>
-    <script>
-var myDataRef = new Firebase('https://evnt1ep8gkg.firebaseio-demo.com/');
-    </script>
-  </body>
-</html>
-=======
-<!--hi-->
   <head>
     <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/1.1.4/angularfire.min.js"></script>
+
     <script src='scripts.js'></script>
   </head>
   <body>
   	<div ng-app="myApp" ng-controller="myCtrl"> 
 
-    <script>
-      var myDataRef = new Firebase('https://w6w9mv1ytz1.firebaseio-demo.com/');
-    </script>
 
     <table>
   		<tr ng-repeat="college in colleges">
     		<td>{{ college.Name }}</td>
-    		<td>{{ college.Location }}</td>
-    		<td>{{ college.Size }}</td>
   		</tr>
     </table>
+
+
+
+<div ng-app="" ng-init="names=['Jani','Hege','Kai']">
+  <p>Looping with ng-repeat:</p>
+  <ul>
+    <li ng-repeat="x in names">
+      {{ x }}
+    </li>
+  </ul>
+</div>
 
     {{firstName}} {{lastName}}
 
@@ -37,4 +33,4 @@ var myDataRef = new Firebase('https://evnt1ep8gkg.firebaseio-demo.com/');
 
   </body>
 </html>
->>>>>>> 26a117274955afa1b2befd3cb29ae6e7e38800b1
+
