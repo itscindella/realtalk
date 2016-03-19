@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<!--hi-->
+  <head>
+  	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
+    <script src="https://cdn.firebase.com/libs/angularfire/1.1.4/angularfire.min.js"></script>
+
+    <script src='scripts.js'></script>
+  </head>
+  <body>
+  	<div ng-app="myApp" ng-controller="myCtrl"> 
+
+
+    <table class="table">
+    	<tr>
+    		<td>College</td>
+    		<td>Size</td>
+    		<td>Location</td>
+    	</tr>	
+  		<tr ng-repeat="college in colleges">
+    		<td>{{ college.Name }}</td>
+    	    <td>{{ college.Size }}</td>
+    		<td>{{ college.Location }}</td>
+  		</tr>
+    </table>
+
+
+</div>
+
+  </body>
+</html>
