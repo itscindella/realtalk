@@ -1,6 +1,11 @@
+<!DOCTYPE html>
 <html>
 <!--hi-->
   <head>
+  	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+  	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
     <script src="https://cdn.firebase.com/libs/angularfire/1.1.4/angularfire.min.js"></script>
@@ -11,24 +16,19 @@
   	<div ng-app="myApp" ng-controller="myCtrl"> 
 
 
-    <table>
+    <table class="table">
+    	<tr>
+    		<td>College</td>
+    		<td>Size</td>
+    		<td>Location</td>
+    	</tr>	
   		<tr ng-repeat="college in colleges">
     		<td>{{ college.Name }}</td>
+    	    <td>{{ college.Size }}</td>
+    		<td>{{ college.Location }}</td>
   		</tr>
     </table>
 
-
-
-<div ng-app="" ng-init="names=['Jani','Hege','Kai']">
-  <p>Looping with ng-repeat:</p>
-  <ul>
-    <li ng-repeat="x in names">
-      {{ x }}
-    </li>
-  </ul>
-</div>
-
-    {{firstName}} {{lastName}}
 
 </div>
 
