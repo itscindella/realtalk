@@ -1,7 +1,27 @@
 
 //controller stuff
-var app = angular.module('myApp', ["firebase"]);
-app.controller('myCtrl', function($scope, $firebaseArray, collegesService) {
+var app = angular.module('myApp', ['firebase', 'ui.router']);
+
+
+app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
+    $urlRouterProvider.otherwise('/');
+ 
+    $stateProvider
+        .state('home', {
+            url:'/',
+            templateUrl: 'index.html',
+            controller: 'myCtrl'
+        })
+        .state('college', {
+            url:'/colleges',
+            templateUrl: 'colleges.html',
+            controller: 'myOtherCtrl'
+        })
+ 
+}]);
+
+
+app.controller('myCtrl', function($scope, $firebaseArray, collegesService, $state) {
 
 	var ref = new Firebase("https://trentduffy.firebaseio.com/CollegeTest");
 
@@ -14,7 +34,9 @@ app.controller('myCtrl', function($scope, $firebaseArray, collegesService) {
 	
     	collegesService.setCollege(collegePassed);
 
-	 	window.location.href = "colleges.html";
+    	$scope.tryagain = collegePassed;
+
+	 	$state.go('college');
 
 
     };
@@ -25,7 +47,7 @@ app.controller('myCtrl', function($scope, $firebaseArray, collegesService) {
 
 
 //controller stuff
-app.controller('myOtherCtrl', function($scope, $firebaseArray, collegesService) {
+app.controller('myOtherCtrl', function($scope, $firebaseArray, collegesService, $state) {
 
     $scope.firstName = "John";
     $scope.lastName = "Doe";
@@ -37,7 +59,7 @@ app.controller('myOtherCtrl', function($scope, $firebaseArray, collegesService) 
 
 
 	console.log("why?");
-	console.log(collegesService.getCollege());
+	console.log($scope.tryagain);
 
 
 });
@@ -54,7 +76,7 @@ app.service('collegesService', function() {
   };
 
   var getCollege = function() {
-  	return this.currentCollege;
+  	return currentCollege;
   };
 
   return {
@@ -63,3 +85,17 @@ app.service('collegesService', function() {
   };
 
 });
+
+
+$(function() {
+    $('body').on('click', '.page-scroll a', function(event) {
+        var $anchor = $(this);
+        $('html, body').stop().animate({
+            scrollTop: $($anchor.attr('href')).offset().top
+        }, 1500, 'easeInOutExpo');
+        event.preventDefault();
+    });
+});
+
+
+
