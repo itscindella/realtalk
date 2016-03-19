@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-<!--hi-->
   <head>
   	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
@@ -10,8 +9,9 @@
 
     <script src='scripts.js'></script>
   </head>
-  <body>
-  	<div ng-app="myApp" ng-controller="myCtrl"> 
+
+  	<div ng-app="myApp" ng-controller="myOtherCtrl"> 
+
 
 
     <table class="table">
@@ -21,15 +21,14 @@
     		<td>Location</td>
     	</tr>	
   		<tr ng-repeat="college in colleges" >
-    		<td ng-click="myFunction(college.Name)">{{ college.Name }}</td>
+    		<td>{{ college.Name }}</td>
     	    <td>{{ college.Size }}</td>
     		<td>{{ college.Location }}</td>
   		</tr>
     </table>
 
+    {{colleges}}
 
+  	</div>
 
-</div>
-
-  </body>
 </html>
