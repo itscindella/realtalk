@@ -10,21 +10,40 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/0.2.18/angular-ui-router.js"></script>
       <script src='scripts.js'></script>
       <!-- Custom CSS -->
-      <link href="style.css" rel="stylesheet"> 
+      <link href="style.css" rel="stylesheet">
    </head>
+
    <body>
       <style>
          .bs-example {
-         background-color: lightblue;
+         background-color: none;
          margin-top: 0px;
+         height:100px;
          }
       </style>
-      <div id="main" ng-app="myApp"> 
+
+      <div id="main" ng-app="myApp">
          <div ui-view="main">
-            <div class="bs-example">
-               <h1 class="text-center">Real Talk</h1>
-               <p class="text-center" class="lead">Find out what <em>you</em> need to know about colleges</p>
-            </div>
+
+           <!-- Header -->
+           <nav class="navbar navbar-default navbar-fixed-top">
+             <div class="container">
+               <div class="navbar-header page-scroll">
+                 <a class="navbar-brand" >Real Talk</a>
+                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                     <ul class="nav navbar-nav navbar-right">
+                         <li class="page-scroll">
+                             <a>Find out what <em>you</em> need to know about colleges</a>
+                         </li>
+                     </ul>
+                 </div>
+               </div>
+             </div>
+           </nav>
+
+          <!-- Search Bar -->
+
+        <div class="top-buffer3">
          <div class="container-fluid col-lg-4 col-lg-offset-5 col-md-4 col-md-offset-4 col-sm-6 col-sm-offset-4">
             <form class="form-inline">
                <div class="form-group">
@@ -33,10 +52,12 @@
                   </div>
                </div>
                <button type="submit" class="btn btn-primary">Search</button>
-                </form>
+            </form>
          </div>
-        
+
+         <!-- Table -->
          <div class="container-fluid col-lg-10 col-lg-offset-1">
+           <div class="container-narrow">
             <table class="table table-bordered table-condensed">
                <thead>
                   <tr>
@@ -55,7 +76,19 @@
             </table>
          </div>
          </div>
-         
+
       </div>
+      </div>
+      </div>
+
+      <script src="jquery-2.2.2.min.js"></script>
+
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+      <script src="jquery.backstretch.min.js"></script>
+
+      <script>
+      $.backstretch("college_quad.jpg");
+      </script>
+
    </body>
 </html>

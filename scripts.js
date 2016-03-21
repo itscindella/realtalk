@@ -4,7 +4,7 @@ var app = angular.module('myApp', ['firebase', 'ui.router']);
 
 
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
-    
+
   console.dir(":router");
     $stateProvider
         .state('home', {
@@ -15,7 +15,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
                   controller: 'myCtrl'
               }
             }
-           
+
         })
         .state('college', {
             url:'/colleges',
@@ -25,7 +25,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             controller: 'myOtherCtrl'
               }
             }
-            
+
         });
         $urlRouterProvider.otherwise('/');
 }]);
@@ -46,7 +46,7 @@ app.controller('myCtrl', [
 
 
     $scope.myFunction = function(collegePassed){
-  
+
       collegesService.setCollege(collegePassed);
 
     $state.go('college');
@@ -64,7 +64,7 @@ app.controller('myOtherCtrl', [
     "$scope",
     "$firebaseArray",
     "collegesService",
-    "$state", 
+    "$state",
   function($scope, $firebaseArray, collegesService, $state) {
 
   if (collegesService.getCollege() == "Boston College") {
@@ -82,7 +82,7 @@ app.controller('myOtherCtrl', [
     $scope.extras = $firebaseArray(extraData);
 
 
-   
+
 
 //    var fuckyou = $firebaseObject(ref);
 
@@ -117,6 +117,7 @@ app.service('collegesService', function() {
 });
 
 
+
 // $(function() {
 //     $('body').on('click', '.page-scroll a', function(event) {
 //         var $anchor = $(this);
@@ -126,6 +127,3 @@ app.service('collegesService', function() {
 //         event.preventDefault();
 //     });
 // });
-
-
-
