@@ -4,65 +4,95 @@ var app = angular.module('myApp', ['firebase', 'ui.router']);
 
 
 app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $urlRouterProvider) {
-    $urlRouterProvider.otherwise('/');
- 
+    
+  console.dir(":router");
     $stateProvider
         .state('home', {
             url:'/',
-            templateUrl: 'index.html',
-            controller: 'myCtrl'
+            views: {
+              main: {
+                 templateUrl: 'index.html',
+                  controller: 'myCtrl'
+              }
+            }
+           
         })
         .state('college', {
             url:'/colleges',
-            templateUrl: 'colleges.html',
+            views: {
+              main: {
+                 templateUrl: 'colleges.html',
             controller: 'myOtherCtrl'
-        })
- 
+              }
+            }
+            
+        });
+        $urlRouterProvider.otherwise('/');
 }]);
 
 
-app.controller('myCtrl', function($scope, $firebaseArray, collegesService, $state) {
-
-	var ref = new Firebase("https://trentduffy.firebaseio.com/CollegeTest");
+app.controller('myCtrl', [
+    "$scope",
+    "$firebaseArray",
+    "collegesService",
+    "$state",
+    function($scope, $firebaseArray, collegesService, $state){
+      var ref = new Firebase("https://trentduffy.firebaseio.com/CollegeTest");
 
     $scope.firstName = "John";
     $scope.lastName = "Doe";
 
     $scope.colleges = $firebaseArray(ref);
 
+
     $scope.myFunction = function(collegePassed){
-	
-    	collegesService.setCollege(collegePassed);
+  
+      collegesService.setCollege(collegePassed);
 
-    	$scope.tryagain = collegePassed;
-
-	 	$state.go('college');
+    $state.go('college');
 
 
     };
 
+    }
 
-
-});
+  ]);
 
 
 //controller stuff
-app.controller('myOtherCtrl', function($scope, $firebaseArray, collegesService, $state) {
+app.controller('myOtherCtrl', [
+    "$scope",
+    "$firebaseArray",
+    "collegesService",
+    "$state", 
+  function($scope, $firebaseArray, collegesService, $state) {
 
-    $scope.firstName = "John";
-    $scope.lastName = "Doe";
+  if (collegesService.getCollege() == "Boston College") {
+	 var majorsData = new Firebase("https://trentduffy.firebaseio.com/Students/Boston%20College/Majors");
+   var extraData = new Firebase("https://trentduffy.firebaseio.com/Students/Boston%20College/Extracurriculars");
+  } else if (collegesService.getCollege() == "Northeastern") {
+   var majorsData = new Firebase("https://trentduffy.firebaseio.com/Students/Northeastern/Majors");
+   var extraData = new Firebase("https://trentduffy.firebaseio.com/Students/Northeastern/Extracurriculars");
+  } else if (collegesService.getCollege() == "Boston University") {
+  var majorsData = new Firebase("https://trentduffy.firebaseio.com/Students/BU/Majors");
+   var extraData = new Firebase("https://trentduffy.firebaseio.com/Students/BU/Extracurriculars");
+   } ;
 
-	var ref = new Firebase("https://trentduffy.firebaseio.com/CollegeTest");
+    $scope.majors = $firebaseArray(majorsData);
+    $scope.extras = $firebaseArray(extraData);
 
 
-    $scope.colleges = $firebaseArray(ref);
+   
+
+//    var fuckyou = $firebaseObject(ref);
+
+  //  fuckyou.$bindTo($scope, "data");
+
+  //  $scope.biology = newnew.Biology;
 
 
-	console.log("why?");
-	console.log($scope.tryagain);
 
-
-});
+}]);
 
 
 app.service('collegesService', function() {
@@ -71,8 +101,8 @@ app.service('collegesService', function() {
 
   var setCollege = function(newCol) {
      currentCollege =  newCol;
-
-
+     console.dir(newCol);
+     return;
   };
 
   var getCollege = function() {
@@ -87,15 +117,15 @@ app.service('collegesService', function() {
 });
 
 
-$(function() {
-    $('body').on('click', '.page-scroll a', function(event) {
-        var $anchor = $(this);
-        $('html, body').stop().animate({
-            scrollTop: $($anchor.attr('href')).offset().top
-        }, 1500, 'easeInOutExpo');
-        event.preventDefault();
-    });
-});
+// $(function() {
+//     $('body').on('click', '.page-scroll a', function(event) {
+//         var $anchor = $(this);
+//         $('html, body').stop().animate({
+//             scrollTop: $($anchor.attr('href')).offset().top
+//         }, 1500, 'easeInOutExpo');
+//         event.preventDefault();
+//     });
+// });
 
 
 
