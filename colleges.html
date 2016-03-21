@@ -1,26 +1,4 @@
-<!DOCTYPE html>
-<html>
-<!--hi-->
 
-  <head>
-  	<!-- Latest compiled and minified CSS -->
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-  	<!-- Latest compiled and minified JavaScript -->
-	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-    <script src='https://cdn.firebase.com/js/client/2.2.1/firebase.js'></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.0/angular.min.js"></script>
-    <script src="https://cdn.firebase.com/libs/angularfire/1.1.4/angularfire.min.js"></script>
-
-    <!-- Custom js-->
-    <script src='scripts.js'></script>
-
-    <!-- Custom CSS -->
-    <link href="style.css" rel="stylesheet">
-
-  </head>
-
-
-<body>
 
  <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
@@ -43,7 +21,7 @@
                         <a href="#page-top"></a>
                     </li>
                     <li class="page-scroll">
-                        <a href="index.html">Home</a>
+                        <a href="#page-top">Home</a>
                     </li>
                 </ul>
             </div>
@@ -56,7 +34,7 @@
 <div class="container top-buffer"> 
     <div class="page-header">
         <h1 class="text-center">Choose an option:</h1>
-     </div> 
+
 </div>
 
 <div class="container top-buffer2"> 
@@ -67,10 +45,7 @@
                         <div class="headline">
                         <h4>Extracurriculars:</h4>
                         </div>
-                    <p>text</p>
-                    <p>text</p>
-                    <p>text</p>
-                    <p>text</p>
+                    <p ng-repeat="extra in extras" ng-show="extra.show"><a ng-href="{{extra.link}}" target="_blank"> {{extra.name}} </a></p>
                 </div>  
             </div>
             <div class="col-lg-6">
@@ -78,18 +53,7 @@
                 <div class="headline">
                     <h4>Majors:</h4>
                 </div>
-                    <p>text</p>
-                    <p>text</p>
-                    <p>text</p>
-                    <p>text</p>
-                    <p>text</p>
-                    <p>text</p>
-                    <p>text</p>
-                    <p>text</p>
+                    <!-- <button type="button" class="btn btn-primary" ng-show="data.Biology == true" >Biology </button> -->
+                    <p ng-repeat="major in majors" ng-show="major.show"><a ng-href="{{major.link}}" target="_blank"> {{major.name}} </a></p>
                 </div>
             </div>
-
-
-</body>
-
-</html>
