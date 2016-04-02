@@ -3,7 +3,6 @@
  <!-- Navigation -->
     <nav class="navbar navbar-default navbar-fixed-top">
         <div class="container">
-            <!-- Brand and toggle get grouped for better mobile display -->
             <div class="navbar-header page-scroll">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
                     <span class="sr-only">Toggle navigation</span>
@@ -29,24 +28,24 @@
         </div>
         <!-- /.container-fluid -->
     </nav>
-        
+
 <!-- Title -->
-<div class="container top-buffer"> 
+<div class="container top-buffer">
     <div class="page-header">
-        <h1 class="text-center">Choose an option:</h1>
+        <h1 class="text-center tag-box tag-box-v6 box-shadow shadow-effect-2" style="color:gray">Choose a connection at {{school}}:</h1>
 
 </div>
 
-<div class="container top-buffer2"> 
+<div class="container top-buffer2">
         <div class="row">
             <div class="col-lg-8 col-lg-offset-2 equal">
                 <div class="col-lg-6">
-                    <div class="tag-box tag-box-v6 box-shadow shadow-effect-2"> 
+                    <div class="tag-box tag-box-v6 box-shadow shadow-effect-2">
                         <div class="headline">
                         <h4>Extracurriculars:</h4>
                         </div>
                     <p ng-repeat="extra in extras" ng-show="extra.show"><a ng-href="{{extra.link}}" target="_blank"> {{extra.name}} </a></p>
-                </div>  
+                </div>
             </div>
             <div class="col-lg-6">
                 <div class="tag-box tag-box-v6 box-shadow shadow-effect-2">
