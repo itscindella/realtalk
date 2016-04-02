@@ -68,7 +68,7 @@
                </thead>
                <tbody>
                   <tr ng-repeat="college in colleges">
-                     <td > <a ng-click="myFunction(college.Name)"> {{ college.Name }}</a></td>
+                     <td> <button type="button" class="btn btn-default" ng-click="myFunction(college.Name)"> {{ college.Name }}</button></td>
                      <td>{{ college.Size | number}}</td>
                      <td>{{ college.Location }}</td>
                   </tr>
@@ -84,7 +84,8 @@
       <script src="jquery-2.2.2.min.js"></script>
 
       <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
-      <script src="jquery.backstretch.min.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>
+
 
       <script>
       $.backstretch("college_quad.jpg");

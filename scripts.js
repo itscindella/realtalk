@@ -67,16 +67,22 @@ app.controller('myOtherCtrl', [
     "$state",
   function($scope, $firebaseArray, collegesService, $state) {
 
+    $scope.school = collegesService.getCollege();
+
   if (collegesService.getCollege() == "Boston College") {
 	 var majorsData = new Firebase("https://trentduffy.firebaseio.com/Students/Boston%20College/Majors");
    var extraData = new Firebase("https://trentduffy.firebaseio.com/Students/Boston%20College/Extracurriculars");
-  } else if (collegesService.getCollege() == "Northeastern") {
+  } else if (collegesService.getCollege() == "Boston University") {
+   var majorsData = new Firebase("https://trentduffy.firebaseio.com/Students/BU/Majors");
+   var extraData = new Firebase("https://trentduffy.firebaseio.com/Students/BU/Extracurriculars");
+       console.log("come on trent");
+
+   
+  } else if (collegesService.getCollege() == "Northeastern University") {
    var majorsData = new Firebase("https://trentduffy.firebaseio.com/Students/Northeastern/Majors");
    var extraData = new Firebase("https://trentduffy.firebaseio.com/Students/Northeastern/Extracurriculars");
-  } else if (collegesService.getCollege() == "Boston University") {
-  var majorsData = new Firebase("https://trentduffy.firebaseio.com/Students/BU/Majors");
-   var extraData = new Firebase("https://trentduffy.firebaseio.com/Students/BU/Extracurriculars");
-   } ;
+  }  ;
+
 
     $scope.majors = $firebaseArray(majorsData);
     $scope.extras = $firebaseArray(extraData);
