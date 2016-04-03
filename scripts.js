@@ -17,6 +17,15 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             }
 
         })
+        .state('single', {
+            url:'/this',
+            views: {
+                main: {
+                    templateUrl: 'NuDM.html',
+                    controller: "singleCtrl"
+                }
+            }
+        })
         .state('college', {
             url:'/colleges',
             views: {
@@ -28,6 +37,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
 
         });
         $urlRouterProvider.otherwise('/');
+
 }]);
 
 
@@ -77,7 +87,7 @@ app.controller('myOtherCtrl', [
    var extraData = new Firebase("https://trentduffy.firebaseio.com/Students/BU/Extracurriculars");
        console.log("come on trent");
 
-   
+
   } else if (collegesService.getCollege() == "Northeastern University") {
    var majorsData = new Firebase("https://trentduffy.firebaseio.com/Students/Northeastern/Majors");
    var extraData = new Firebase("https://trentduffy.firebaseio.com/Students/Northeastern/Extracurriculars");
@@ -99,6 +109,37 @@ app.controller('myOtherCtrl', [
 
 
 }]);
+
+
+app.controller('singleCtrl', [
+    "$scope",
+    "$firebaseArray",
+    "collegesService",
+    "$state",
+  function($scope, $firebaseArray, collegesService, $state) {
+
+
+   var majorsData = new Firebase("https://trentduffy.firebaseio.com/BusSchool/Majors");
+   var extraData = new Firebase("https://trentduffy.firebaseio.com/BusSchool/Extracurriculars");
+   console.log("come on trent");
+
+
+    $scope.majors = $firebaseArray(majorsData);
+    $scope.extras = $firebaseArray(extraData);
+
+
+
+
+//    var fuckyou = $firebaseObject(ref);
+
+  //  fuckyou.$bindTo($scope, "data");
+
+  //  $scope.biology = newnew.Biology;
+
+
+
+}]);
+
 
 
 app.service('collegesService', function() {
