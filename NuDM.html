@@ -44,7 +44,8 @@
 
      <div class="container top-buffer">
          <div class="page-header">
-             <h1 class="text-center tag-box tag-box-v6 box-shadow shadow-effect-2" style="color:gray">Choose a connection at D'Amore-McKim:</h1>
+             <h1 class="text-center tag-box tag-box-v6 box-shadow shadow-effect-2" style="color:gray">Choose a connection at D'Amore-McKim: <br> </h1>
+             <p style="background-color:white">{{majors}}</p>
 
      </div>
 
@@ -65,7 +66,7 @@
                          <h4>Majors:</h4>
                      </div>
                          <!-- <button type="button" class="btn btn-primary" ng-show="data.Biology == true" >Biology </button> -->
-                         <p ng-repeat="major in majors" ng-show="major.show"><a ng-href="{{major.link}}" target="_blank"> {{major.name}} </a></p>
+                         <p ng-repeat="major in majors" ng-show="major.show "><a ng-href="{{major.link}}" target="_blank"> {{major.name}} </a></p>
                      </div>
                  </div>
 

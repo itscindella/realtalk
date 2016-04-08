@@ -26,6 +26,15 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
                 }
             }
         })
+        .state('single2', {
+            url:'/ccis',
+            views: {
+                main: {
+                    templateUrl: 'ccis.html',
+                    controller: "ccisCtrl"
+                }
+            }
+        })
         .state('college', {
             url:'/colleges',
             views: {
@@ -127,16 +136,23 @@ app.controller('singleCtrl', [
     $scope.majors = $firebaseArray(majorsData);
     $scope.extras = $firebaseArray(extraData);
 
+}]);
+
+app.controller('ccisCtrl', [
+    "$scope",
+    "$firebaseArray",
+    "collegesService",
+    "$state",
+  function($scope, $firebaseArray, collegesService, $state) {
 
 
-
-//    var fuckyou = $firebaseObject(ref);
-
-  //  fuckyou.$bindTo($scope, "data");
-
-  //  $scope.biology = newnew.Biology;
+   var majorsData = new Firebase("https://trentduffy.firebaseio.com/CCIS/Majors");
+   var extraData = new Firebase("https://trentduffy.firebaseio.com/CCIS/Extracurriculars");
+   console.log("come on trent");
 
 
+    $scope.majors = $firebaseArray(majorsData);
+    $scope.extras = $firebaseArray(extraData);
 
 }]);
 
