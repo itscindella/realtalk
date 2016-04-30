@@ -44,30 +44,54 @@
 
      <div class="container top-buffer">
          <div class="page-header">
-             <h1 class="text-center tag-box tag-box-v6 box-shadow shadow-effect-2" style="color:gray">Choose a connection at D'Amore-McKim: <br> </h1>
+             <h1 class="text-center tag-box tag-box-v6 box-shadow shadow-effect-2" style="color:gray">Choose a connection at Northeastern University: <br> </h1>
 
      </div>
 
      <div class="container top-buffer2">
              <div class="row">
-                 <div class="col-lg-8 col-lg-offset-2 equal">
                      <div class="col-lg-6">
                          <div class="tag-box tag-box-v6 box-shadow shadow-effect-2">
                              <div class="headline">
-                             <h4>Extracurriculars:</h4>
+                             <h4>Experiential Learning:</h4>
                              </div>
-                         <p ng-repeat="extra in extras" ng-show="extra.show"><a ng-href="{{extra.link}}" target="_blank"> {{extra.name}} </a></p>
+                         <p><a href="http://www.northeastern.edu/coop/" target="_blank">Co-op Program</a></p>
+                         <p><a href="http://www.northeastern.edu/experiential-learning/global-experience/" target="_blank">Global Experience</a></p>
+                         <p><a href="https://www.facebook.com/liber.guggiarimarchewka?fref=ts" target="_blank">N.U.in</a></p>
                      </div>
                  </div>
                  <div class="col-lg-6">
                      <div class="tag-box tag-box-v6 box-shadow shadow-effect-2">
                      <div class="headline">
-                         <h4>Majors:</h4>
+                         <h4> Schools:</h4>
+                     </div>
+                         <!-- <button type="button" class="btn btn-primary" ng-show="data.Biology == true" >Biology </button> -->
+                         <p><a href="http://www.trentduffy.me/realtalk/#/ccis" target="_self">College of Computer and Information Science</a></p>
+                         <p><a href="http://www.trentduffy.me/realtalk/#/this" target="_self">D'Amore-McKim School of Business</a></p>
+                     </div>
+                 </div>
+             </div>
+             <div class="row">
+                 <div class="col-lg-6">
+                     <div class="tag-box tag-box-v6 box-shadow shadow-effect-2">
+                     <div class="headline">
+                         <h4>Popular Majors:</h4>
                      </div>
                          <!-- <button type="button" class="btn btn-primary" ng-show="data.Biology == true" >Biology </button> -->
                          <p ng-repeat="major in majors" ng-show="major.show "><a ng-href="{{major.link}}" target="_blank"> {{major.name}} </a></p>
                      </div>
                  </div>
+                 <div class="col-lg-6">
+                     <div class="tag-box tag-box-v6 box-shadow shadow-effect-2">
+                     <div class="headline">
+                         <h4>Popular Extracurriculars:</h4>
+                     </div>
+                         <!-- <button type="button" class="btn btn-primary" ng-show="data.Biology == true" >Biology </button> -->
+                         <p ng-repeat="extra in extras" ng-show="extra.show"><a ng-href="{{extra.link}}" target="_blank"> {{extra.name}} </a></p>
+                     </div>
+                 </div>
+             </div>
+         </div>
 
 
      <script src="jquery-2.2.2.min.js"></script>
@@ -77,6 +101,6 @@
 
 
      <script>
-     $.backstretch("dodge.png");
+     $.backstretch("ccis.jpg");
      </script>
   </body>

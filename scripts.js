@@ -17,6 +17,16 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
             }
 
         })
+        .state('neu', {
+            url:'/northeastern',
+            views: {
+              main: {
+                 templateUrl: 'neu.html',
+                  controller: 'neuCtrl'
+              }
+            }
+
+        })
         .state('single', {
             url:'/this',
             views: {
@@ -155,6 +165,25 @@ app.controller('ccisCtrl', [
     $scope.extras = $firebaseArray(extraData);
 
 }]);
+
+app.controller('neuCtrl', [
+    "$scope",
+    "$firebaseArray",
+    "collegesService",
+    "$state",
+  function($scope, $firebaseArray, collegesService, $state) {
+
+
+      var majorsData = new Firebase("https://trentduffy.firebaseio.com/Students/Northeastern/Majors");
+      var extraData = new Firebase("https://trentduffy.firebaseio.com/Students/Northeastern/Extracurriculars");
+   console.log("come on trent");
+
+
+    $scope.majors = $firebaseArray(majorsData);
+    $scope.extras = $firebaseArray(extraData);
+
+}]);
+
 
 
 
